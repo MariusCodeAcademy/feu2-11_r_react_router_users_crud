@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Section, Icon } from '../components/styled/UI.styled';
 import { getData } from '../helper';
@@ -79,9 +79,11 @@ const UserImage = styled.img`
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid #333;
+  margin-top: 25px;
 `;
 
 function SingleUserPage(props) {
+  const history = useHistory();
   const allParams = useParams();
   const currentUserId = allParams.userId;
 
@@ -103,7 +105,7 @@ function SingleUserPage(props) {
   const u = currentUser;
   return (
     <ThisSection>
-      <button>Back to users</button>
+      <button onClick={() => history.push('/users')}>Back to users</button>
       {currentUser.image && (
         <UserImage src={currentUser.image} alt={fullName} />
       )}
