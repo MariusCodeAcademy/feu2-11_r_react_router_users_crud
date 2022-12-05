@@ -36,7 +36,7 @@ function Header(props) {
   return (
     <HeaderEl>
       <ThisContainer>
-        <Logo>ReactRouter</Logo>
+        <Logo to='/'>ReactRouter</Logo>
         <Nav>
           <LinkTo to='/' exact>
             Home

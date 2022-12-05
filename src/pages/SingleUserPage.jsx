@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Section, Title } from '../components/styled/UI.styled';
+import { getData } from '../helper';
 
 const dummyUser = {
   id: 2,
@@ -84,8 +86,12 @@ function SingleUserPage(props) {
   const currentUserId = allParams.userId;
 
   // 1. susikurti data state for current user currentUser
+  const [currentUser, setCurrentUser] = useState({});
   // 2. parsisiusti su feth useEffecte duomenis apie konkretu useri getData fn
-  // 3. set state su gautais duomenimis
+  useEffect(() => {
+    // 3. set state su gautais duomenimis
+    getData(setCurrentUser, `https://dummyjson.com/users/${currentUserId}`);
+  }, []);
   // 4. is state atvaizduojam daugiau info apie useri
 
   // 5. stilius kaip paveiklselyje
