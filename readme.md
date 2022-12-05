@@ -6,7 +6,7 @@
    1. `/users` matysim usersPage
    2. `/` matysim homePage
 4. susiinstaliuoti styled components
-5. susikurti Contaner komponenta
+5. susikurti Container komponenta
 6. susikurti Navigation komponenta
 
 
