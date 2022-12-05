@@ -1,6 +1,6 @@
 # React
 
-1. isidiegti `react-router-dom@^5`
+1. isidiegti `npm i react-router-dom@^5`
 2. apjuosti musu app su browserRouter
 3. App.jsx sukuri 2 routus. 
    1. `/users` matysim usersPage
