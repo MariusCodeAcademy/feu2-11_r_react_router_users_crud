@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Section, Title } from '../components/styled/UI.styled';
+import { Section, Icon } from '../components/styled/UI.styled';
 import { getData } from '../helper';
 
 const dummyUser = {
@@ -96,19 +96,23 @@ function SingleUserPage(props) {
 
   // 5. stilius kaip paveiklselyje
   const fullName = `${currentUser.firstName} ${currentUser.lastName}`;
+  const u = currentUser;
   return (
     <ThisSection>
-      <UserImage src={currentUser.image} alt={fullName} />
+      {currentUser.image && (
+        <UserImage src={currentUser.image} alt={fullName} />
+      )}
       <h1>{fullName}</h1>
-      <p>email</p>
+      <p>{currentUser.email}</p>
       <p>
-        <i class='fa fa-phone-square' aria-hidden='true'></i> Tel
+        <Icon icon='phone-square' />
+        Tel: {currentUser.phone}
       </p>
       <p>
-        He|She is 180cm height, weights 80 km. Has a green eyes and brown
-        straight hair studies in university : uni
+        {u.gender === 'male' ? 'He' : 'She'} is {u.height}cm height, weights{' '}
+        {u.weight} kg. Has a {u.eyeColor} eyes and {u.hair?.color}{' '}
+        {u.hair?.type} hair, studies in university : {u.university}
       </p>
-      <p>I should load 🦸 with id: {currentUserId}</p>
     </ThisSection>
   );
 }
