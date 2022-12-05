@@ -15,16 +15,11 @@ function UsersPage(props) {
       url = '/api/users.json';
       const resp = await fetch(url);
       const dataInJs = await resp.json();
-      // const usersWithNameAndId = dataInJs.users.map((uOb) => ({
-      //   id: uOb.id,
-      //   firstName: uOb.firstName,
-      //   lastName: uOb.lastName,
-      //   age: uOb.age,
-      // }));
-      // console.log(JSON.stringify(usersWithNameAndId));
 
       // dataInJs === {users: Array(30), total: 100, skip: 0, limit: 30}
       console.log('dataInJs ===', dataInJs.users);
+      // set state
+      setUsersArr(dataInJs.users);
     } catch (error) {
       console.warn('klaida getData', error);
     }
@@ -34,7 +29,21 @@ function UsersPage(props) {
     <Section>
       <h1>UsersPage</h1>
       <p>This is our users</p>
+
+      <ul>
+        {/* is usersArr pagaminti li elementus su vardu ir pavarde */}
+        <li>Jams Band</li>
+        <li>Jane Dow</li>
+      </ul>
     </Section>
   );
 }
 export default UsersPage;
+
+// const usersWithNameAndId = dataInJs.users.map((uOb) => ({
+//   id: uOb.id,
+//   firstName: uOb.firstName,
+//   lastName: uOb.lastName,
+//   age: uOb.age,
+// }));
+// console.log(JSON.stringify(usersWithNameAndId));
