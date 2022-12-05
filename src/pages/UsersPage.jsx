@@ -1,5 +1,19 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Section } from '../components/styled/UI.styled';
+import styled from 'styled-components';
+
+const UserLink = styled(Link)`
+  padding: 0.5em 1em;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 4px;
+  &:hover {
+    background-color: #fff;
+  }
+`;
 
 function UsersPage(props) {
   // susikurti usersArr state
@@ -17,7 +31,7 @@ function UsersPage(props) {
       const dataInJs = await resp.json();
 
       // dataInJs === {users: Array(30), total: 100, skip: 0, limit: 30}
-      console.log('dataInJs ===', dataInJs.users);
+      // console.log('dataInJs ===', dataInJs.users);
       // set state
       setUsersArr(dataInJs.users);
     } catch (error) {
@@ -30,11 +44,16 @@ function UsersPage(props) {
       <h1>UsersPage</h1>
       <p>This is our users</p>
 
-      <ul>
+      <ol>
         {/* is usersArr pagaminti li elementus su vardu ir pavarde */}
-        <li>Jams Band</li>
-        <li>Jane Dow</li>
-      </ul>
+        {usersArr.map((uObj) => (
+          <li key={uObj.id}>
+            <UserLink to={'#'}>
+              {uObj.firstName} {uObj.lastName}
+            </UserLink>
+          </li>
+        ))}
+      </ol>
     </Section>
   );
 }
