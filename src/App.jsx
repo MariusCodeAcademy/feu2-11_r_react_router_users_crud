@@ -9,7 +9,8 @@ function App() {
     <div className='App'>
       {/* prideti route /users/2 gaunam SingleUserPage */}
       <Switch>
-        <Route path={'/users/2'}>
+        {/* :userId dinaminis parametras kurio reiksme galime pasiimti is useParams() hook */}
+        <Route path={'/users/:userId'}>
           <SingleUserPage />
         </Route>
         <Route path={'/users'}>
