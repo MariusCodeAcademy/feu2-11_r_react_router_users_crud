@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { Section } from '../components/styled/UI.styled';
 import styled from 'styled-components';
 import { getData } from '../helper';
+import SingleUserPage from './SingleUserPage';
 
 const UserLink = styled(Link)`
   padding: 0.5em 1em;
@@ -28,6 +29,10 @@ function UsersPage(props) {
     <Section>
       <h1>UsersPage</h1>
       <p>This is our users</p>
+
+      <Route path={'/users/:userId'}>
+        <SingleUserPage />
+      </Route>
 
       <ol>
         {/* is usersArr pagaminti li elementus su vardu ir pavarde */}
