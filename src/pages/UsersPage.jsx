@@ -25,7 +25,7 @@ function UsersPage(props) {
 
   async function getData() {
     try {
-      let url = 'https://dummyjson.com/users';
+      let url = 'https://dummyjson.com/users/';
       url = '/api/users.json';
       const resp = await fetch(url);
       const dataInJs = await resp.json();
