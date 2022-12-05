@@ -95,13 +95,15 @@ function SingleUserPage(props) {
   // 4. is state atvaizduojam daugiau info apie useri
 
   // 5. stilius kaip paveiklselyje
-  const fullName = `${dummyUser.firstName} ${dummyUser.lastName}`;
+  const fullName = `${currentUser.firstName} ${currentUser.lastName}`;
   return (
     <ThisSection>
-      <UserImage src={dummyUser.image} alt={fullName} />
+      <UserImage src={currentUser.image} alt={fullName} />
       <h1>{fullName}</h1>
       <p>email</p>
-      <p>tel</p>
+      <p>
+        <i class='fa fa-phone-square' aria-hidden='true'></i> Tel
+      </p>
       <p>
         He|She is 180cm height, weights 80 km. Has a green eyes and brown
         straight hair studies in university : uni

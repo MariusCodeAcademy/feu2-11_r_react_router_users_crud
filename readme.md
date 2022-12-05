@@ -10,6 +10,12 @@
 6. susikurti Navigation komponenta
 
 
+## add font awesome ^4
+
+1. `npm i font-awesome@^4`
+2. import css in main.jsx `import 'font-awesome/css/font-awesome.min.css';`
+
+
 ## Link
 
 1. [react router 5](https://v5.reactrouter.com/web/guides/quick-start)
