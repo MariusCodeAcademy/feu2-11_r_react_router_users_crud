@@ -5,6 +5,9 @@ import UsersPage from './pages/UsersPage';
 import SingleUserPage from './pages/SingleUserPage';
 import Header from './components/Header/Header';
 
+// 2. Sukurti 404 not found page,
+// 3. prideti route for not found page
+
 function App() {
   return (
     <div className='App'>

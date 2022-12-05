@@ -95,10 +95,15 @@ function SingleUserPage(props) {
   // 4. is state atvaizduojam daugiau info apie useri
 
   // 5. stilius kaip paveiklselyje
+
+  // 1. <button>Back to users</button>
+  // veda atgal i /users psl
+
   const fullName = `${currentUser.firstName} ${currentUser.lastName}`;
   const u = currentUser;
   return (
     <ThisSection>
+      <button>Back to users</button>
       {currentUser.image && (
         <UserImage src={currentUser.image} alt={fullName} />
       )}
