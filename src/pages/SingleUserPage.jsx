@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { Section, Title } from '../components/styled/UI.styled';
 
 const dummyUser = {
@@ -64,6 +65,20 @@ const dummyUser = {
     'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.30 (KHTML, like Gecko) Ubuntu/11.04 Chromium/12.0.742.112 Chrome/12.0.742.112 Safari/534.30',
 };
 
+const ThisSection = styled(Section)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const UserImage = styled.img`
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #333;
+`;
+
 function SingleUserPage(props) {
   const allParams = useParams();
   const currentUserId = allParams.userId;
@@ -73,12 +88,12 @@ function SingleUserPage(props) {
   // 3. set state su gautais duomenimis
   // 4. is state atvaizduojam daugiau info apie useri
 
+  // 5. stilius kaip paveiklselyje
+  const fullName = `${dummyUser.firstName} ${dummyUser.lastName}`;
   return (
-    <Section>
-      <img src={dummyUser.image} alt='' />
-      <h1>
-        {dummyUser.firstName} {dummyUser.lastName}
-      </h1>
+    <ThisSection>
+      <UserImage src={dummyUser.image} alt={fullName} />
+      <h1>{fullName}</h1>
       <p>email</p>
       <p>tel</p>
       <p>
@@ -86,7 +101,7 @@ function SingleUserPage(props) {
         straight hair studies in university : uni
       </p>
       <p>I should load 🦸 with id: {currentUserId}</p>
-    </Section>
+    </ThisSection>
   );
 }
 export default SingleUserPage;
